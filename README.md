@@ -1,12 +1,14 @@
-Vagrant enviroment:
-	- Download and setup:
+## Vagrant enviroment
+
+	- Download and setup
 		+ VirtualBox: https://www.virtualbox.org/wiki/Downloads
 		+ Vagrant: https://www.vagrantup.com/downloads.html
-	- Enable Virtualization Technology in BIOS:
+	- Enable Virtualization Technology in BIOS
 		+ Security -> System security -> Virtualization Technology -> Enable
 		+ Press F10 and restart device
 
-Vagrant:
+## Vagrant
+
 	- Create box
 		+ vagrant init centos/7
 		+ vagrant up
@@ -20,11 +22,13 @@ Vagrant:
 		  config.vm.synced_folder "C:/WS", "/var/www/html", owner: "vagrant", group: "vagrant", :mount_options => ["dmode=777", "fmode=777"]
 		end
 
-EPEL(install phpMyAdmin)
+## EPEL(install phpMyAdmin)
+
 	- rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY*
 	- yum -y install epel-release
 
-MySQL/MariaDB:
+## MySQL/MariaDB
+
 	- Install:
 		+ yum -y install mariadb-server mariadb
 		+ systemctl start mariadb.service
@@ -32,7 +36,8 @@ MySQL/MariaDB:
 	- Set passwords for the MySQL root account:
 		+ mysql_secure_installation
 
-APACHE
+## APACHE
+
 	- Install:
 		+ yum -y install httpd
 	- Configure system to start Apache at boot time
@@ -42,7 +47,8 @@ APACHE
 		+ vi /etc/sysconfig/selinux
 		+ Change SELINUX=enforcing => SELINUX=disabled
 
-PHP
+## PHP
+
 	- Add Remi CentOS repository: rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 	- Install yum-utils: yum -y install yum-utils
 	- Update yum: yum update
@@ -52,7 +58,8 @@ PHP
 	- Restart apache: systemctl restart httpd.service
 	- Install extension: sudo yum install php-{package_name}
 
-phpMyAdmin
+## phpMyAdmin
+
 	- Install: yum -y install phpMyAdmin
 	- Configure phpMyAdmin:
 		+ vi /etc/httpd/conf.d/phpMyAdmin.conf
@@ -89,7 +96,8 @@ phpMyAdmin
 			[...] 
 	- Restart Apache: systemctl restart  httpd.service
 
-VIRTUAL HOST
+## VIRTUAL HOST
+
 	Create virtual host:
 		- Create config file: vi /etc/httpd/conf.d/{hostname}.conf
 		- Add code
@@ -125,13 +133,15 @@ VIRTUAL HOST
 			+ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
 		- Restart Apache: systemctl restart httpd.service
 
-TMUX
+## TMUX
+
 	- Install: yum install tmux
 	- Create section: tmux new -s share
 	- Split vertical: Ctrl + b and Shift + "
 	- Split horizontal: Ctrl + b and Shift + 5
 
-GIT 
+## GIT 
+
 	- Instal: yum install git
 	- Add config
 		+ git config --global user.name "Your Name"
